@@ -1,0 +1,180 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root{
+  /* PRIMARY */
+  --Moderateviolet: hsl(263, 55%, 52%);
+  --Verydarkgrayishblue: hsl(217, 19%, 35%);
+  --Verydarkblackishblue: hsl(219, 29%, 14%);
+  --White: hsl(0, 0%, 100%);
+  /* NEUTRAL */
+  --Lightgray: hsl(0, 0%, 81%);
+  --Lightgrayishblue: hsl(210, 46%, 95%);
+}
+body{
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 13px;
+  /* - Weights: 500, 600 */
+}
+.container{
+  display: grid;
+  grid-template: repeat(2,1fr)/ repeat(4,1fr);
+  margin: 20px;
+  grid-template-areas: 
+    'box1 box1 box2 box3'
+    'box4 box5 box5 box3'
+  ;
+  position: relative;
+}
+.box{
+  /* border: red solid 1px; */
+  padding: 20px;
+  margin: 10px;
+  color: var(--White);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7); /* Shadow effect */
+}
+.user-details{
+  display: grid;
+  grid-template: repeat(2,1fr) / 60px 200px;
+  grid-template-areas: 
+    'img name none'
+    'img veri none'
+  ;
+
+  z-index: 2;
+}
+.user-img{
+  border-radius: 50px;
+}
+.user-details .user-img{
+  grid-area: img;
+}
+.user-details .user-name{
+  grid-area: name;
+  align-self: flex-end;
+}
+.user-details .verified-txt{
+  grid-area: veri;
+  align-items: end;
+}
+.qoute{
+  position: absolute;  /* Or use relative if you want it relative to another element */
+  top: 15px;              /* Adjust as needed */
+  left: 450px;             /* Adjust as needed */
+  width: 100px;         /* Full width of the container */
+  object-fit: fill;    /* Ensures the image covers the space without distortion */
+  z-index: 0;         /* This pushes it behind other elements */
+  opacity: 0.7;        /* Optional: adjust visibility */
+}
+/* TEXT's IN THE BOX */
+.box .verified-txt{
+  color: gray;
+}
+.box .txt-one{
+  margin-top: 10px;
+  font-size: 23px;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+}
+.box .txt-two{
+  margin-top: 10px;
+  color: gray;
+  font-weight: 500;
+  font-size: 17px;
+}
+.kira-box .txt-one{
+  color: var(--Verydarkgrayishblue);
+}
+.jeanette-box .txt-one{
+  color: var(--Verydarkgrayishblue);
+  width: 220px;
+}
+
+.kira-box .user-name{
+  color: var(--Verydarkgrayishblue);
+}
+.jeanette-box .user-name{
+  color: var(--Verydarkgrayishblue);
+}
+
+/* BOXES */
+.daniel-box{
+  grid-area: box1;
+  background-color: var(--Moderateviolet);
+}
+.jonathan-box{
+  grid-area: box2;
+  background-color: var(--Verydarkgrayishblue);
+}
+.jeanette-box{
+  grid-area: box4;
+  background-color: var(--Lightgray);
+}
+.patrick-box{
+  grid-area: box5;
+  background-color: var(--Verydarkblackishblue);
+}
+.kira-box{
+  grid-area: box3;
+  background-color: var(--Lightgrayishblue);
+}
+.attribution { font-size: 11px; text-align: center; margin-bottom: 20px;}
+.attribution a { color: hsl(228, 45%, 44%);  }
+
+@media screen and (max-width:375px) {
+  .container{
+    display: grid;
+    grid-template: 1fr / 1fr;
+    margin: 20px;
+    grid-template-areas: 
+      'box1'
+      'box2'
+      'box3'
+      'box4'
+      'box5'
+    ;
+  }
+  .qoute{
+    position: absolute;  /* Or use relative if you want it relative to another element */
+    top: 10px;              /* Adjust as needed */
+    left: 200px;             /* Adjust as needed */
+    object-fit: cover;    /* Ensures the image covers the space without distortion */
+  }
+  /* TEXT's IN THE BOX */
+  .box .txt-one{
+    margin-top: 20px;
+    font-size: 21px;  
+  }
+  .jeanette-box .txt-one{
+    color: var(--Verydarkgrayishblue);
+    width: 230px;
+  }
+  .box .txt-two{
+    margin-top: 20px;
+    font-size: 14px;
+    width: 280px;
+  }
+  /* BOXES */
+  .box{
+    padding: 30px 25px;
+  }
+  .daniel-box{
+    grid-area: box1;
+  }
+  .jonathan-box{
+    grid-area: box2;
+  }
+  .jeanette-box{
+    grid-area: box3;
+  }
+  .patrick-box{
+    grid-area: box4;
+  }
+  .kira-box{
+    grid-area: box5;
+  }
+}
